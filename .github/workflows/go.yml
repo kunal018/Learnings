@@ -23,3 +23,15 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+    - name: Build Docker Image
+        id: buildAndPushImage
+        uses: abhishek-070/docker-image-build-push-action@v1.0
+        with:
+          registry_url: 'docker.io'
+          repository_name: 'demo '
+          user_name: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          image_version: 'v1.0'
+          docker_file: '.'
+ 
