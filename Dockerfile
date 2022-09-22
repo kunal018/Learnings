@@ -1,7 +1,11 @@
-FROM golang
+FROM golang:1.14-alpine
 
-RUN mkdir -p /home/app
+RUN /app
 
-COPY . /home/app
+COPY . /app
 
-CMD ["go run", "/home/app/Hello_world.go"]
+WORKDIR /app
+
+RUN go build -o Hello_world
+
+CMD [ "/app/Hello_world" ]
