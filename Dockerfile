@@ -1,6 +1,6 @@
 FROM golang:1.14-alpine
 
-RUN /app
+RUN mkdir /app
 
 COPY . /app
 
